@@ -3,13 +3,15 @@
     return [
         "GET" => [
             "/" => "Web@home",
-            "/login" => "Web@login",
             "/cadastrar" => "Web@cadastrar",
-            "/dashboard" => "Web@dashboard"
+            "/dashboard" => "Web@dashboard",
+            "/login" => "Web@login",
+            "/logout" => "Web@logout"
         ],
         
         "POST" => [
-            "/login" => "Auth@login"
+            "/login" => "Auth@login",
+            "/register" => "Auth@register"
         ]
     ];
 

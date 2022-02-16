@@ -109,10 +109,24 @@
 
     function exists ($field, $param) {
         $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
-        $exists = findBy($param, $data, "uniqueId");
+        $exists = findBy($param, $data, "email");
+
+        if(!$exists) {
+            setFlash($field, "O valor passado não está cadastrado");
+            return false;
+        }
+
+        return $data;
+    }
+
+
+    function notExists ($field, $param) {
+        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        $exists = findBy($param, $data, "email");
+
 
         if($exists) {
-            setFlash($field, "O valor passado não está cadastrado");
+            setFlash($field, "O valor passado já está cadastrado");
             return false;
         }
 

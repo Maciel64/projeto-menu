@@ -6,14 +6,10 @@
 
         function home () {
 
-            $products = all("products");
-
-
             return [
                 "view" => "home.php",
                 "data" => [
                     "title" => "Página inicial",
-                    "products" => $products
                 ]
             ];
         }
@@ -29,10 +25,20 @@
         }
 
 
+        function logout () {
+            unset($_SESSION[LOGGED]);
+            return redirectWithMessage("/", "success", "Você saiu de sua sessão com sucesso!");
+        }
+
+
         function cadastrar () {
+
+            $users = all("users");
+
             return [
-                "view" => "cadastrar.php",
+                "view" => "register.php",
                 "data" => [
+                    "users" => $users,
                     "title" => "Faça seu cadastro",
                 ]
             ];
@@ -41,13 +47,12 @@
 
         function dashboard () {
 
-            $products = all("products");
 
             return [
                 "view" => "dashboard.php",
                 "data" => [
                     "title" => "Sua dashboard",
-                    "products" => $products
+                    "user" => user()
                 ]
             ];
         }
