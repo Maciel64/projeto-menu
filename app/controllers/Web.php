@@ -47,25 +47,15 @@
 
         function dashboard () {
 
+            $site = findBy("sites", $_SESSION[LOGGED]->id, "user_id");
+
 
             return [
                 "view" => "dashboard.php",
                 "data" => [
                     "title" => "Sua dashboard",
-                    "user" => user()
+                    "site" => $site
                 ]
             ];
-        }
-
-
-        function addProduct () {
-
-            return [
-                "view" => "dashboard.php",
-                "data" => [
-                    "title" => "Adicione um produto"
-                ]
-            ];
-
         }
     }

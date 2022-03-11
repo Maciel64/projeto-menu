@@ -8,7 +8,7 @@
         function login () {
             
             $validate = validate([
-                "email" => "required|email|exists:admin_users",
+                "email" => "required|email|exists:users",
                 "passwd" => "required"
             ]);
 
@@ -16,7 +16,7 @@
                 return redirectWithMessage("/login", "error", "Não foi possível realizar o login");
             }
 
-            $user = findBy("admin_users", $validate["email"], "email");
+            $user = findBy("users", $validate["email"], "email");
 
 
             if (!password_verify($validate["passwd"], $user->passwd)) {
@@ -24,7 +24,7 @@
             }
 
             $_SESSION[LOGGED] = $user;
-            return redirect("/dashboard");
+            return redirectWithMessage("/dashboard", "success", "Login realizado com sucesso!");
         }
 
 
@@ -32,7 +32,7 @@
 
             $validate = validate([
                 "name" => "required",
-                "email" => "email|required|notExists:admin_users",
+                "email" => "email|required|notExists:users",
                 "passwd" => "required"
             ]);
 
@@ -43,7 +43,7 @@
 
             $validate["passwd"] = password_hash($validate["passwd"], PASSWORD_DEFAULT);
 
-            $create = create("admin_users", $validate);
+            $create = create("users", $validate);
 
             if (!$create) {
                 return redirectWithMessage("/cadastrar", "error", "Não foi possível realizar o cadastro");

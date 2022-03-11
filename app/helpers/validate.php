@@ -9,7 +9,8 @@
             singleValidation($validate, $field, $param) :
             multipleValidation($validate, $field, $param);
         }
-
+        
+        // var_dump($results);
 
         if (in_array(false, $results)) {
             return false;
