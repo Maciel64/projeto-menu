@@ -2,6 +2,8 @@
 
     namespace app\controllers;
 
+    use Exception;
+
     class Site {
         
         /**
@@ -16,6 +18,42 @@
                     "title" => "Crie seu novo site",
                 ]
             ];
+        }
+
+
+        function inicio ($params) {
+
+            $site = findBy("sites", $params["site"], "slug");
+
+            if (!$site) {
+                throw new Exception("Site {$params["site"]} não existe}");
+            }
+
+
+            $templateAndPath = CONTROLLER_PATH . ucfirst($site->template);
+
+            
+            if (!class_exists($templateAndPath)) {
+                redirectWithMessage("/", "error", "O site {$params["site"]} não possui um template");
+            }
+
+
+            $template = new $templateAndPath;
+
+
+            $return = [
+                "view" => "site/home.php",
+                "data" => [
+                    "title" => "Crie seu novo site",
+                    "site" => $site,
+                ]
+            ];
+
+
+            $return["data"] = array_merge($return["data"], $template->index($site));
+
+
+            return $return;
         }
 
 

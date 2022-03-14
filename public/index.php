@@ -13,7 +13,7 @@
 			throw new Exception("Parametro data não passado");
 		}
 
-		if (!file_exists(VIEWS . $router["view"])) {
+		if (!file_exists(VIEWS_PATH . $router["view"])) {
 			throw new Exception("Arquivo da view {$router["view"]} não encontrado");
 		}
 
@@ -22,12 +22,11 @@
 
 		$view = $router["view"];
 
-		require VIEWS . "_master.php";
+		require VIEWS_PATH . "_master.php";
 
-	} catch (Exception $e) {
+	} catch (Exception $error) {
 
-		var_dump($e);
-		// require VIEWS . "erro.php";
+		require VIEWS_PATH . "error.php";
 	}
 
 ?>

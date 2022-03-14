@@ -1,7 +1,8 @@
-<h1>Bem vindo a página de login</h1>
-
 <?= getFlash("success", "color:green"); ?>
 <?= getFlash("error"); ?>
+
+<h1>Bem vindo a página de login</h1>
+
 
 <form action="/login" method="POST">
     <div class="flex">

@@ -1,8 +1,19 @@
 <?php
 
-    define("CONTROLLER_PATH", "app\\controllers\\");
+    /**
+     * PATHS
+     */
+
     define("ROOT", dirname(__FILE__, 3));
-    define("VIEWS", ROOT."/app/views/");
+    define("VIEWS_PATH", ROOT . "/app/views/");
+    define("TEMPLATE_PATH", VIEWS_PATH . "templates/");
+
+    define("CONTROLLER_PATH", "app\\controllers\\");
+
+    /**
+     * UTILS
+     */
+
     define("LOGGED", "logged");
 
     /**
@@ -13,3 +24,5 @@
     define("DB_NAME", "sql10478268");
     define("DB_USER_NAME", "sql10478268");
     define("DB_PASSWD", "4zM8ErCTTn");
+
+?>

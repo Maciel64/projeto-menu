@@ -66,7 +66,7 @@
             return controller($uriMatches, $params);
         }
 
-        throw new Exception("Deu ruim...");
+        throw new Exception("404... Página requisitada não encontrada :(");
     }
 
 ?>

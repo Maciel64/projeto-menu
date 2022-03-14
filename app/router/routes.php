@@ -2,18 +2,24 @@
 
     return [
         "GET" => [
-            "/" => "Web@home",
-            "/cadastrar" => "Web@cadastrar",
-            "/dashboard" => "Web@dashboard",
-            "/login" => "Web@login",
-            "/logout" => "Web@logout",
-            "/site/novo" => "Site@novo"
+            "/" => "Home@inicio",
+            "/cadastrar" => "Home@cadastrar",
+            "/dashboard" => "Home@dashboard",
+            "/entrar" => "Home@entrar",
+            "/sair" => "Home@sair",
+
+            "/site/novo" => "Site@novo",
+            "/site/[a-z]{1,30}" => "Site@inicio",
+
+            "/site/[a-z]{1,30}/produtos/novo" => "Products@novo"
         ],
         
         "POST" => [
-            "/login" => "Auth@login",
-            "/register" => "Auth@register",
-            "/site/create" => "Site@create"
+            "/login" => "Home@login",
+            "/register" => "Home@register",
+
+            "/site/create" => "Site@create",
+            "/site/[a-z]{1,30}/product/new" => "Products@new",
         ]
     ];
 
