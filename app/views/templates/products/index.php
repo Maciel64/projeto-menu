@@ -16,7 +16,7 @@
 
             <?php else : ?>
 
-                <p>Esse site ainda não tem produtos cadastrdos</p>
+                <p>Esse site ainda não tem produtos cadastrados</p>
             <?php endif; ?>
 
         </div>
