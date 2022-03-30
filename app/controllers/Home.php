@@ -109,6 +109,6 @@
                 return redirectWithMessage("/cadastrar", "error", "Não foi possível realizar o cadastro");
             }
 
-            return redirectWithMessage("/login", "success", "Cadastrado com sucesso! Agora realize o login");
+            return redirectWithMessage("/entrar", "success", "Cadastrado com sucesso! Agora realize o login");
         }
     }

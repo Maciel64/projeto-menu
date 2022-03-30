@@ -11,8 +11,10 @@
 </head>
 
 <body>
-    <?php require "partials/header.php"; ?>
-
+    
+    <?php require $view; ?>
+    <?php /*require "partials/header.php"; ?>
+    
     <main class="w-full flex flex-col h-fit items-center">
         <div class="my-10 rounded drop-shadow-md w-1/2 bg-slate-50 p-6">
             <?php require $view; ?>
@@ -22,7 +24,7 @@
             <div class="mb-10 rounded drop-shadow-md w-1/2 h-fit bg-slate-50 p-6">
                 <?php require $body; ?>
             </div>
-        <?php endif; ?>
+        <?php endif; */?>
 
     </main>
 </body>

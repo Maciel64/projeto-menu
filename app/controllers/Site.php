@@ -79,7 +79,7 @@
             $create = create("sites", $validate);
 
             if (!$create) {
-                return redirectWithMessage("/site/novo", "error", "Não foi possível criar um site novo 1");
+                return redirectWithMessage("/site/novo", "error", "Não foi possível criar um site novo ");
             }
 
             return redirectWithMessage("/dashboard", "success", "Site {$validate["name"]} criado com sucesso!");

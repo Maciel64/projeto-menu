@@ -29,8 +29,8 @@
 <?php endif ?>
 
 <div>
-    <a class="ml-0 bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded" href="/sair">Sair da sessão</a>
+    <a class="ml-0 bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg inline-block rounded" href="/sair">Sair da sessão</a>
     <?php if (!$site) : ?>
-        <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded" href="/site/novo">Cadastrar novo site</a>
+        <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg inline-block rounded" href="/site/novo">Cadastrar novo site</a>
     <?php endif; ?>
 </div>
