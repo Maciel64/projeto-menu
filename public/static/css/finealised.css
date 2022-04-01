@@ -1,0 +1,14 @@
+body{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.corpo{
+    width: 60vw;
+    height: 60vh;
+    background-color: #39B2AC;
+    border-radius: 3rem;
+    
+}

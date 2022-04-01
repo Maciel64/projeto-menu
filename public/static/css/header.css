@@ -1,0 +1,20 @@
+aside {
+    width: 10rem;
+    height: 8rem;
+    position: absolute;
+    background-color: #328492;
+    top: 10vh;
+    right: .5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transform: rotateX(90deg);
+    transform-origin: top center;
+}
+
+
+.perfil:hover ~ aside, aside:hover{
+    display: block;
+    transform: rotateX(0deg);
+    transition: all 0.4s;
+}
+
