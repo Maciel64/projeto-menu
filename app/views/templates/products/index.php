@@ -4,16 +4,16 @@
         <?php foreach ($products as $product) : ?>
             <div class="w-full drop-shadow bg-white rounded p-2">
 
+                <img class="block" src="/upload/<?= $product->photo; ?>" alt="<?= $product->name; ?>">
+                <hr>
+                <p><?= $product->name; ?><?= $product->price; ?></p>
+                <p><?= $product->description; ?></p>
+                
                 <?php if (admin($site)) : ?>
                 
-                    <img class="block" src="/upload/<?= $product->photo; ?>" alt="<?= $product->name; ?>">
-                    <hr>
-                    <p><?= $product->name; ?><?= $product->price; ?></p>
-                    <p><?= $product->description; ?></p>
-                
-
                     <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/editar" class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit">Editar</a>
                     <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/remover" class="bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit">Apagar</a>
+                
                 <?php endif ?>        
             </div>
         <?php endforeach; ?>

@@ -20,6 +20,8 @@
                 "view" => "login.php",
                 "data" => [
                     "title" => "Faça login",
+                    "removeHeader" => true,
+                    "removeBody" => true
                 ]
             ];
         }
@@ -40,6 +42,8 @@
                 "data" => [
                     "users" => $users,
                     "title" => "Faça seu cadastro",
+                    "removeHeader" => true,
+                    "removeBody" => true
                 ]
             ];
         }
