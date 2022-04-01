@@ -34,7 +34,7 @@
 
             
             if (!class_exists($templateAndPath)) {
-                redirectWithMessage("/", "error", "O site {$params["site"]} não possui um template");
+                redirectWithMessage("/", "error", "O site {$params["site"]} não possui um template válido");
             }
 
 

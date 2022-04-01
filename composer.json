@@ -9,6 +9,7 @@
             "app/core/controller.php",
             "app/database/connection.php",
             "app/database/create.php",
+            "app/database/delete.php",
             "app/database/fetch.php",
             "app/database/update.php",
             "app/helpers/constants.php",

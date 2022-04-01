@@ -6,6 +6,7 @@
 
     define("ROOT", dirname(__FILE__, 3));
     define("VIEWS_PATH", ROOT . "/app/views/");
+    define("UPLOAD_PATH", ROOT . "/public/upload/");
     define("TEMPLATE_PATH", VIEWS_PATH . "templates/");
 
     define("CONTROLLER_PATH", "app\\controllers\\");
