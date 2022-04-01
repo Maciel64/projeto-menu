@@ -25,5 +25,6 @@
         <input type="file" name="photo" id="photo" value="">
     </div>
 
-    <input class="bg-sky-600 text-white w-24 p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded" type="submit" value="Editar">
+    <a href="/site/<?= $site->slug; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">Voltar</a>
+    <input class="bg-green-600 text-white w-24 p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded" type="submit" value="Editar">
 </form>

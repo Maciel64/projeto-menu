@@ -32,5 +32,5 @@
 </section>
 
 <?php if (admin($site)) : ?>
-    <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded block w-fit" href="./<?= $site->slug ?>/produtos/novo">Cadastrar novo produto</a>
+    <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded block w-fit" href="./<?= $site->slug ?>/produto/novo">Cadastrar novo produto</a>
 <?php endif; ?>

@@ -129,7 +129,7 @@
 
             if ($validate["photo"] !== $product->photo) {
                 if (!move_uploaded_file($validate["photo"]["tmp"], UPLOAD_PATH . $validate["photo"]["newName"])) {
-                    return redirectWithMessage("/site/{$params["site"]}/produto/{$params["produto"]}/editar", "error", "Não foi possível fazer upload da foto");
+                    return redirectWithMessage("/site/{$params["site"]}/produto/{$params["product"]}/editar", "error", "Não foi possível fazer upload da foto");
                 }
                 
                 unlink(UPLOAD_PATH . $product->photo);
@@ -141,7 +141,7 @@
             $update = update("products", $params["product"], "id", array_keys($validate), array_values($validate));
         
             if (!$update) {
-                return redirectWithMessage("/site/{$params["site"]}/produto/{$params["produto"]}/editar", "error", "Não foi possível atualizar o item");
+                return redirectWithMessage("/site/{$params["site"]}/produto/{$params["product"]}/editar", "error", "Não foi possível atualizar o item");
             }
 
             return redirectWithMessage("/site/{$params["site"]}", "success", "Item atualizado com sucesso!");
@@ -150,6 +150,17 @@
 
         function remove ($params) {
 
+            $product = findBy("products", $params["product"], "id");
+
+            $remove = delete("products", "id", $product->id);
+
+            if (!$remove) {
+                return redirectWithMessage("/site/{$params["site"]}/produto/{$params["product"]}/remover", "error", "Não foi possível apagar o produto {$product->name}");
+            }
+
+            unlink(UPLOAD_PATH . $product->photo);
+
+            return redirectWithMessage("/site/{$params["site"]}", "success", "Produto {$product->name} apagado com sucesso!");
         }
     }
 
