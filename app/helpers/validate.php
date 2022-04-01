@@ -1,6 +1,6 @@
 <?php
 
-    function validate (array $validates) {
+    function validate (array $validates, $edit = false) {
         $results = [];
         $param = "";
 
@@ -10,14 +10,12 @@
             multipleValidation($validate, $field, $param);
         }
         
-        // var_dump($results);
 
-        if (in_array(false, $results)) {
-            return false;
+        if (!in_array(false, $results) || $edit) {
+            return $results;
         }
-
-
-        return $results;
+        
+        return false;
     }
 
 
@@ -132,6 +130,26 @@
         }
 
         return $data;
+    }
+
+
+    function upload ($field, $param) {
+        $extension = pathinfo($_FILES[$field]["name"], PATHINFO_EXTENSION);
+
+        if (!in_array($extension, array("png", "jpg", "jpeg"))) {
+            setFlash($field, "Extensão do aruivo inválida");
+            return false;
+        }
+
+        $tmp = $_FILES[$field]["tmp_name"];
+        $newName = uniqid() . ".$extension";
+
+        return ["tmp" => $tmp, "newName" => $newName];
+    }
+
+
+    function edit ($field, $param) {
+        
     }
 
 ?>

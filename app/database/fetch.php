@@ -20,3 +20,15 @@
 
         return $prepare->fetch();
     }
+
+
+    function findAllby ($table, $value, $field, $fields = "*") {
+        $connection = connect();
+
+        $prepare = $connection->prepare("SELECT $fields FROM $table WHERE $field = :$field");
+        $prepare->execute([
+            $field => $value
+        ]);
+
+        return $prepare->fetchAll();
+    }

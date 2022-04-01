@@ -4,36 +4,35 @@
      * @author Maciel G S J
      * 
      * @param string $table Tabela de onde os dados serão alterados
-     * @param string $value Valor a ser comparado para filtro
-     * @param array $values Novos valores a serem salvos
-     * @param string $field Campo usado para comparação de filtro
-     * @param array $fields Campos a terem seus valores atualizados
+     * @param string $valueToCompare Valor a ser comparado para filtro
+     * @param string $fieldToBeCompared Campo usado para comparação de filtro
+     * @param array $fieldsToChange Campos a terem seus valores atualizados
+     * @param array $newValues Novos valores a serem salvos
      * 
      * @return bool Se foi possível alterar os campos
      */
 
 
-    function update ($table, $value, $values, $field, $fields) {
+    function update ($table, $valueToCompare, $fieldToBeCompared, $fieldsToChange, $newValues) {
         $connection = connect();
 
         $sql = "UPDATE $table SET ";
 
-        foreach ($fields as $index => $itt) {
+        foreach ($fieldsToChange as $index => $value) {
 
-            $sql .= "$itt = ?";
+            $sql .= "$value = ?";
             
-            if ($index >= sizeof($fields)) {
+            if ($index < sizeof($fieldsToChange) - 1) {
 
                 $sql .= ", ";
-            } else {
-                $sql .= " ";
             }
         }
 
-        $sql .= "WHERE $field = $value;";
+        $sql .= " WHERE $fieldToBeCompared = $valueToCompare;";
 
         $prepare = $connection->prepare($sql);
-        return $prepare->execute($values);
+        var_dump($prepare);
+        return $prepare->execute($newValues);
     }
 
 
