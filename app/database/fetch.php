@@ -22,7 +22,7 @@
     }
 
 
-    function findAllby ($table, $value, $field, $fields = "*") {
+    function findAllBy ($table, $value, $field, $fields = "*") {
         $connection = connect();
 
         $prepare = $connection->prepare("SELECT $fields FROM $table WHERE $field = :$field");

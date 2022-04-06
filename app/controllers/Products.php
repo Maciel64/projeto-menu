@@ -11,11 +11,16 @@
 
         function index ($site) {
 
-            $products = findAllBy("products", $site->id, "site_id");
+            $categories = findAllBy("categories", $site->id, "site_id");
+
+            foreach ($categories as $index => $category) {
+                $categories[$index]->products = findAllby("products", $category->id, "category_id");
+            }
+
 
             return [
                 "body" => TEMPLATE_PATH . "/products/index.php",
-                "products" => $products
+                "categories" => $categories,
             ];
         }
 
@@ -27,12 +32,19 @@
         function novo ($params) {
 
             $site = findBy("sites", $params["site"], "slug");
+            $category = findBy("categories", $params["categoria"], "id");
+
+
+            if (!$category || $category->site_id !== $site->id) {
+                return redirectWithMessage("/site/{$params["site"]}", "error", "A categoria especificada não existe");
+            }
 
             return [
                 "view" => "templates/products/new.php",
                 "data" => [
                     "title" => "Novo produto | {$site->name}",
-                    "site" => $site
+                    "site" => $site,
+                    "category" => $category
                 ]
             ];
         }
@@ -84,29 +96,28 @@
             ]);
 
             if (!$validate) {
-                return redirectWithMessage("/site/{$params["site"]}/produto/novo", "error", "Não deixe campos vazios");
+                return redirectWithMessage("/site/{$params["site"]}/categoria/{$params["category"]}/produto/novo", "error", "Não deixe campos vazios");
             }
+
+            
+            $category = findBy("categories", $params["category"], "id");
+            
+            $validate["category_id"] = $category->id;
 
             if (!move_uploaded_file($validate["photo"]["tmp"], UPLOAD_PATH . $validate["photo"]["newName"])) {
-                return redirectWithMessage("/site/{$params["site"]}/produto/novo", "error", "Não foi possível fazer upload da foto");
+                return redirectWithMessage("/site/{$params["site"]}/categoria/{$params["category"]}/produto/novo", "error", "Não foi possível fazer upload da foto");
             }
-
+            
             $validate["photo"] = $validate["photo"]["newName"];
-
-
-            
-            $site = findBy("sites", $params["site"], "slug");
-            
-            $validate["site_id"] = $site->id;
 
             $create = create("products", $validate);
 
 
             if (!$create) {
-                return redirectWithMessage("/site/{$params["site"]}/produto/novo", "error", "Não foi possível criar o produto");
+                return redirectWithMessage("/site/{$params["site"]}/categoria/{$params["category"]}/produto/novo", "error", "Não foi possível criar o produto");
             }
 
-            return redirectWithMessage("/site/{$params["site"]}/produto/novo", "success", "Produto criado com sucesso!");
+            return redirectWithMessage("/site/{$params["site"]}", "success", "Produto criado com sucesso!");
         }
 
 

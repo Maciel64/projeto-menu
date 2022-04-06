@@ -26,7 +26,9 @@
 
 	} catch (Exception $error) {
 
-		require VIEWS_PATH . "error.php";
+		var_dump($error);
+
+		// require VIEWS_PATH . "error.php";
 	}
 
 ?>

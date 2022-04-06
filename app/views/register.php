@@ -1,10 +1,3 @@
-<?php if (!$users) : ?>
-    <div>Você está se cadastrando como usuário administrador. Cuidado com os dados que você estará utilizando</div>
-<?php endif; ?>
-
-
-<?= getFlash("error"); ?>
-
 <div class="flex w-full h-full">
 
     <section class=" flex flex-col justify-center bg-green-800 w-1/2 align-items items-center">
@@ -55,8 +48,5 @@
             </div>
         </form>
     </section>
-
-
-
 
 </div>

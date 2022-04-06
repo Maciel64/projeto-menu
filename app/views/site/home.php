@@ -5,5 +5,4 @@
 <?= getFlash("success", "color:green"); ?>
 <?= getFlash("error"); ?>
 
-
 <h1>Bem vindo ao site <?= $site->name; ?></h1>

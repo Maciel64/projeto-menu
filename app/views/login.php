@@ -1,8 +1,4 @@
-<?= getFlash("success", "color:green"); ?>
-<?= getFlash("error"); ?>
-
-
-<div class="flex w-full h-full ">
+<div class="flex w-full h-full">
     <section class="h-full w-1/2 bg-white flex justify-center  items-center">
         <img src="" alt="">
         <form action="/login" method="POST" class="flex flex-col">
@@ -37,12 +33,6 @@
         </form>
 
     </section>
-
-
-
-
-
-
 
     <section class="flex flex-col justify-center bg-green-800 w-1/2 align-items items-center">
 
