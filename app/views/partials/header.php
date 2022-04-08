@@ -4,19 +4,20 @@
 
     </div>
 
-    <nav class="w-1/4">
+    <nav class="flex w-1/4">
         <ul class="flex w-full justify-between">
 
-            <li><a class="text-white" href="/">Página Inicial</a></li>
+            <li class="flex ml-10"><a class="text-white w-full" href="/">Página Inicial</a></li>
 
             <?php if (logged()) : ?>
 
-                <li><a href="/dashboard">Logado como <?= user()->name; ?></a></li>
+                <li><a class="w-96" href="/dashboard">Logado como <?= user()->name; ?></a></li>
                 <div class="perfil">
 
-                    <span class="material-icons text-right w-12 h-full seta align-center  cursor-pointer mt-2">
-                        expand_more
-                    </span>
+                <span class="material-icons text-right w-12 h-full seta align-center  cursor-pointer mt-2">
+                    expand_more
+                </span>
+                
                 </div>
                 <aside>
                     <a href="" class="sair">sair</a>

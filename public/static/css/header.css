@@ -3,7 +3,8 @@ aside {
     height: 8rem;
     position: absolute;
     background-color: #328492;
-    top: 10vh;
+    top: 9vh;
+    margin-top: 4vh;
     right: .5rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -16,5 +17,6 @@ aside {
     display: block;
     transform: rotateX(0deg);
     transition: all 0.4s;
+    margin-top: 0px;
 }
 
