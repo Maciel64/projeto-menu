@@ -21,7 +21,7 @@
                 "data" => [
                     "title" => "Faça login",
                     "removeHeader" => true,
-                    "removeBody" => true
+                    "removeMain" => true
                 ]
             ];
         }
@@ -43,7 +43,7 @@
                     "users" => $users,
                     "title" => "Faça seu cadastro",
                     "removeHeader" => true,
-                    "removeBody" => true
+                    "removeMain" => true
                 ]
             ];
         }

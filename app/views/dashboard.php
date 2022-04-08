@@ -1,7 +1,6 @@
 <?php if (!logged()) { redirectWithMessage("/entrar", "error", "Faça login para conectar-se a sua dashboard"); } ?>
 
 <h1>Bem vindo a dashboard, <?= user()->name; ?></h1>
-<?= getFlash("success", "color:green"); ?>
 
 <?php if ($site) : ?>
 

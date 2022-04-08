@@ -1,16 +1,11 @@
-<?php if ($site->template !== "products") {
-    redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos");
-} ?>
-<?php if (!admin($site)) {
-    redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
-} ?>
+<?php if ($site->template !== "products") { return redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); } ?>
+<?php if (!admin($site)) { return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página"); } ?>
 
-<?= getFlash("error"); ?>
-<?= getFlash("success", "color:green"); ?>
+<form action="/site/<?= $site->slug; ?>/category/<?= $category->id; ?>/product/new" method="POST" enctype="multipart/form-data">
+    <h1>Cadastrar novo produto</h1>
 
-<form action="/site/<?= $site->slug; ?>/product/new" method="POST" enctype="multipart/form-data">
-    <div class="pt-1">
-        <label class="mr-3 p-3 pr-11 " for="name">Nome do produto</label>
+    <div>
+        <label class="mr-3 p-3 pr-11" for="name">Nome do produto</label>
         <input class="border-black border-2 p-1 rounded-md" id="name" type="text" name="name">
     </div>
 
