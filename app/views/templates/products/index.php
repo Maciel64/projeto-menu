@@ -1,6 +1,15 @@
+<?php if (admin($site)) : ?>
+    <div class='flex m-5 rounded drop-shadow-md w-8/12 h-fit p-6 text-sky-600 border-2 bg-sky-200 border-sky-600'>
+        <span class='flex mr-3 my-auto material-icons text-sky-600'>check_circle_outline</span>
+        <span class='flex font-bold my-auto'>Você é o administrador desse site</span>
+    </div>
+<?php endif ?>
+
 <?php foreach ($categories as $index => $category) : ?>
-    <section class="mb-10 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">
+    <section class="m-5 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">
+
         <h2><?= $category->name; ?></h2>
+
         <section class="grid grid-cols-3 gap-4 mb-6 h-max">
 
             <?php if ($category->products) : ?>
@@ -10,9 +19,13 @@
 
                         <img class="block" src="/upload/<?= $product->photo; ?>" alt="<?= $product->name; ?>">
                         <hr>
-                        <p class="p-1 "><h2 class="text-cyan-600"><?= $product->name; ?></h2> </p>
-                <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
-                <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span> </p>
+                        <p class="p-1">
+                            <h2 class="text-cyan-600"><?= $product->name; ?></h2>
+                        </p>
+                        <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span></p>
+                        <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span> </p>
+
+                        <a href="/site/<?= $site->slug ?>/cart/add/product/<?= $product->id; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">+ Carrinho</a>
 
                         <?php if (admin($site)) : ?>
 
@@ -21,10 +34,11 @@
 
                         <?php endif ?>
                     </div>
+
                 <?php endforeach; ?>
 
             <?php else : ?>
-                <div class="col-span-2 w-full drop-shadow bg-white rounded p-2 h-28">
+                <div class="col-span-3 w-full drop-shadow bg-white rounded p-2 h-28">
 
                     <?php if (admin($site)) : ?>
                         <p>Você ainda não tem produtos cadastrados</p>
@@ -39,9 +53,11 @@
 
         </section>
         <?php if (admin($site)) : ?>
-            <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/produto/novo">+ Cadastrar novo produto</a>
-            <a class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/editar">Editar Categoria</a>
-            <a class="bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/remover">Apagar Categoria</a>
+            <div class="mt-10">
+                <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/produto/novo">+ Cadastrar novo produto</a>
+                <a class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/editar">Editar Categoria</a>
+                <a class="bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/remover">Apagar Categoria</a>
+            </div>
         <?php endif; ?>
     </section>
 

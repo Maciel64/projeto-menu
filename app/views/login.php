@@ -1,8 +1,12 @@
 <div class="flex w-full h-full">
     <section class="h-full w-1/2 bg-white flex justify-center  items-center">
         <img src="" alt="">
-        <form action="/login" method="POST" class="flex flex-col">
 
+        
+        <form action="/login" method="POST" class="flex flex-col items-center">
+            
+            <?= getFlash("error"); ?>
+            
             <div class="p-4 m-1 ml-0 ">
                 <span class="material-icons">
                     mail_outline
@@ -40,7 +44,7 @@
 
         <p class=" justify-center p-6  w-82 text-white ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium maxime consequuntur atque aliquam officia fuga inventore, quae quos velit saepe expedita consequatur tempora laudantium rerum? Quae voluptates repellat exercitationem officiis.</p>
 
-        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl " href="#">Cadastrar-se</a>
+        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl " href="/cadastrar">Cadastrar-se</a>
 
     </section>
 </div>

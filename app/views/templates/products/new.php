@@ -1,7 +1,7 @@
 <?php if ($site->template !== "products") { return redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); } ?>
 <?php if (!admin($site)) { return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página"); } ?>
 
-<form action="/site/<?= $site->slug; ?>/category/<?= $category->id; ?>/product/new" method="POST" enctype="multipart/form-data">
+<form id="form" action="/site/<?= $site->slug; ?>/category/<?= $category->id; ?>/product/new" method="POST" enctype="multipart/form-data">
     <h1>Cadastrar novo produto</h1>
 
     <div>
@@ -11,7 +11,7 @@
 
     <div class="pt-1 flex items-center">
         <label class="mr-3 p-3 " for="description">Descrição do produto</label>
-        <textarea class="border-black border-2 w-56 p-1 rounded-md" name="comentarios"></textarea>
+        <textarea class="border-black border-2 w-56 p-1 rounded-md" name="description"></textarea>
     </div>
 
     <div class="pt-1">

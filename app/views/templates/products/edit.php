@@ -10,7 +10,7 @@
 
     <div class="pt-1 flex items-center">
         <label class="mr-3 p-3 " for="description">Descrição do produto</label>
-        <textarea class="border-black border-2 w-56 p-1 rounded-md" name="description"></textarea>
+        <textarea class="border-black border-2 w-56 p-1 rounded-md" name="description"><?= $product->description; ?></textarea>
     </div>
     
     <div class="pt-1">

@@ -4,14 +4,18 @@
 
     </div>
 
-    <nav class="flex w-1/4">
+    <nav class="flex">
         <ul class="flex w-full justify-between">
 
-            <li class="flex ml-10"><a class="text-white w-full" href="/">Página Inicial</a></li>
+            <li class="mx-5 flex ml-10"><a class="text-white w-full" href="/">Página Inicial</a></li>
+
+            <?php if (isset($site)) : ?>
+                <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
+            <?php endif; ?>
 
             <?php if (logged()) : ?>
+                <li class="mx-5"><a class="w-96" href="/dashboard">Logado como <?= user()->name; ?></a></li>
 
-                <li><a class="w-96" href="/dashboard">Logado como <?= user()->name; ?></a></li>
                 <div class="perfil">
 
                 <span class="material-icons text-right w-12 h-full seta align-center  cursor-pointer mt-2">
@@ -22,11 +26,8 @@
                 <aside>
                     <a href="" class="sair">sair</a>
                 </aside>
-
-
+            
             <?php else : ?>
-
-
                 <li><a class="text-white" href="/entrar">Faça login</a></li>
                 <li><a class="text-white" href="/cadastrar">Cadastre-se</a></li>
             <?php endif; ?>

@@ -20,10 +20,10 @@
     <?php if (!isset($removeMain)) : ?>
 
         <main class="w-full flex flex-col h-fit items-center">
-            <?= getFlash("success", "color: green"); ?>
+            <?= getFlash("success"); ?>
             <?= getFlash("error"); ?>
-            
-            <section class="my-10 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">
+
+            <section class="my-5 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">
                 <?php require $view; ?>
             </section>
 

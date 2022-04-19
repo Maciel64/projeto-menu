@@ -17,9 +17,17 @@
             "/site/[a-z]{1,30}/categoria/[0-9]+/remover" => "Categories@remover",
 
             "/site/[a-z]{1,30}/categoria/[0-9]+/produto/novo" => "Products@novo",
+
+            "/site/[a-z]{1,30}/carrinho" => "Cart@index",
             
             "/site/[a-z]{1,30}/produto/[0-9]+/editar" => "Products@editar",
             "/site/[a-z]{1,30}/produto/[0-9]+/remover" => "Products@remover",
+
+            /**
+             * LINK AUTHS
+             */
+
+            "/site/[a-z]{1,30}/carrinho/adicionar/produto/[0-9]+" => "Cart@add"
             
         ],
         

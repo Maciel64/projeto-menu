@@ -77,14 +77,14 @@
             ]);
 
             if (!$validate) {
-                return redirectWithMessage("/login", "error", "Não foi possível realizar o login");
+                return redirectWithMessage("/entrar", "error", "Não foi possível realizar o login");
             }
 
             $user = findBy("users", $validate["email"], "email");
 
 
             if (!password_verify($validate["passwd"], $user->passwd)) {
-                return redirectWithMessage("/login", "error", "Email ou senha incorretos");
+                return redirectWithMessage("/entrar", "error", "Email ou senha incorretos");
             }
 
             $_SESSION[LOGGED] = $user;

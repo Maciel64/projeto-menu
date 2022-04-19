@@ -6,13 +6,19 @@
 
         <p class=" justify-center p-6  w-82 text-white ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium maxime consequuntur atque aliquam officia fuga inventore, quae quos velit saepe expedita consequatur tempora laudantium rerum? Quae voluptates repellat exercitationem officiis.</p>
 
-        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl " href="#">Faça login</a>
+        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl" href="/entrar">Faça login</a>
 
     </section>
 
 
-    <section class="h-full w-1/2 bg-white flex justify-center  items-center">
-        <form action="/register" method="POST">
+    <section class="h-full w-1/2 bg-white flex justify-center items-center">
+
+        
+
+        <form action="/register" class="flex flex-col items-center" method="POST">
+            
+            <?= getFlash("error"); ?>
+
             <div class="p-2 m-1 ml-0 ">
 
                 <label for="nome"></label>
@@ -43,7 +49,7 @@
                 <input class="rounded-lg w-80 h-10 py-2 px-2 border-2 border-black" placeholder="Repetir Senha" id="passwd" type="password" name="passwd">
             </div>
 
-            <div class="ml-24">
+            <div>
                 <input class=" w-36 h-10 bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded-3xl border-black border-solid" type="submit" value="Cadastrar-se">
             </div>
         </form>
