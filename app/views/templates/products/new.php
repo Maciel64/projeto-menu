@@ -5,18 +5,18 @@
     <h1>Cadastrar novo produto</h1>
 
     <div>
-        <label class="mr-3 p-3 pr-11" for="name">Nome do produto</label>
-        <input class="border-black border-2 p-1 rounded-md" id="name" type="text" name="name">
+        <label class="mr-3 p-3 pr-10" for="name">Nome do produto</label>
+        <input class="border-black border-2 w-56 p-1 rounded-md" id="name" type="text" name="name">
     </div>
 
-    <div class="pt-1 flex items-center">
+    <div class="pt-1 flex justify-start">
         <label class="mr-3 p-3 " for="description">Descrição do produto</label>
         <textarea class="border-black border-2 w-56 p-1 rounded-md" name="comentarios"></textarea>
     </div>
 
     <div class="pt-1">
-        <label class="mr-3 p-3 pr-12" for="price">Preço do produto</label>
-        <input class="border-black border-2 p-1 rounded-md" id="price" type="text" name="price">
+        <label class="mr-3 p-3 pr-11" for="price">Preço do produto</label>
+        <input class="border-black border-2 p-1 w-56 rounded-md" id="price" type="text" name="price">
     </div>
 
     <div class="pt-1">

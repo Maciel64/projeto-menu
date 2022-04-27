@@ -29,6 +29,18 @@
          * PAGES
          */
 
+        function pagamento(){
+            return [
+                "view" => "pagamento.php",
+                "data" => [
+                    "removeBody" => True,
+                    "removeHeader" => True,
+                    "title" => "Novo produto | {}"
+                    
+                ]
+            ];
+        }
+
         function novo ($params) {
 
             $site = findBy("sites", $params["site"], "slug");

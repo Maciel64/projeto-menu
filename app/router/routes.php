@@ -20,6 +20,7 @@
             
             "/site/[a-z]{1,30}/produto/[0-9]+/editar" => "Products@editar",
             "/site/[a-z]{1,30}/produto/[0-9]+/remover" => "Products@remover",
+            "/pagamento" => "Products@pagamento",
             
         ],
         
