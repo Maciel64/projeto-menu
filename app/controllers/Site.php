@@ -57,6 +57,20 @@
         }
 
 
+        function editar ($params) {
+
+            $site = findBy("sites", $params["site"], "slug");
+
+            $return = [
+                "view" => "site/home.php",
+                "data" => [
+                    "title" => "Crie seu novo site",
+                    "site" => $site,
+                ]
+            ];
+        }
+
+
         /**
          * AUTHS
          */
@@ -84,5 +98,14 @@
             }
 
             return redirectWithMessage("/dashboard", "success", "Site {$validate["name"]} criado com sucesso!");
+        }
+
+
+        function edit ($params) {
+            $validate = validate([
+                "name" => "required",
+                "description" => "required|maxlen:255",
+                "slug" => "required|maxlen:20"
+            ]);
         }
     }

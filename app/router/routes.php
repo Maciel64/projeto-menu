@@ -11,6 +11,7 @@
 
             "/site/novo" => "Site@novo",
             "/site/[a-z]{1,30}" => "Site@inicio",
+            "/site/[a-z]{1,30}/editar" => "Site@edit",
             
             "/site/[a-z]{1,30}/categoria/nova" => "Categories@nova",
             "/site/[a-z]{1,30}/categoria/[0-9]+/editar" => "Categories@editar",
