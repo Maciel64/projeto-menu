@@ -1,1 +1,0 @@
-<h1>Bem vindo ao site <?= $site->name; ?></h1>

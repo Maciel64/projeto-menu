@@ -28,7 +28,7 @@
             }
         }
 
-        $sql .= " WHERE $fieldToBeCompared = $valueToCompare;";
+        $sql .= " WHERE $fieldToBeCompared = '$valueToCompare';";
 
         $prepare = $connection->prepare($sql);
         var_dump($prepare);

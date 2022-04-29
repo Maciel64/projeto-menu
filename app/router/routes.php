@@ -11,7 +11,9 @@
 
             "/site/novo" => "Site@novo",
             "/site/[a-z]{1,30}" => "Site@inicio",
-            "/site/[a-z]{1,30}/editar" => "Site@edit",
+            "/site/[a-z]{1,30}/editar" => "Site@editar",
+            "/site/[a-z]{1,30}/remover" => "Site@remover",
+
             
             "/site/[a-z]{1,30}/categoria/nova" => "Categories@nova",
             "/site/[a-z]{1,30}/categoria/[0-9]+/editar" => "Categories@editar",
@@ -28,7 +30,8 @@
              * LINK AUTHS
              */
 
-            "/site/[a-z]{1,30}/carrinho/adicionar/produto/[0-9]+" => "Cart@add"
+            "/site/[a-z]{1,30}/carrinho/adicionar/produto/[0-9]+" => "Cart@add",
+            "/pagamento" => "Products@pagamento",
             
         ],
         
@@ -37,7 +40,8 @@
             "/register" => "Home@register",
 
             "/site/create" => "Site@create",
-
+            "/site/[a-z]{1,30}/edit" => "Site@edit",
+            "/site/[a-z]{1,30}/remove" => "Site@remove",
             
             "/site/[a-z]{1,30}/category/new" => "Categories@new",
             "/site/[a-z]{1,30}/category/[0-9]+/edit" => "Categories@edit",

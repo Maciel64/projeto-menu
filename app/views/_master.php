@@ -26,14 +26,21 @@
             <section class="my-5 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">
                 <?php require $view; ?>
             </section>
-
-            <?php if (isset($body)) : ?>
-                <?php require $body; ?>
-            <?php endif; ?>
         </main>
 
     <?php else : ?>
-        <?php require $view; ?>
+
+        <?php if ($removeMain === "container") : ?>
+            <main class="w-full flex flex-col h-fit items-center mt-5">
+                <?= getFlash("success"); ?>
+                <?= getFlash("error"); ?>
+                <?php require $view; ?>
+            </main>
+        <?php else : ?>
+            <?php require $view; ?>
+        <?php endif; ?>
+        
+        
     <?php endif; ?>
 
 </body>

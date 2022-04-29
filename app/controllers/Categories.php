@@ -112,10 +112,12 @@
             return redirectWithMessage("/site/{$params["site"]}", "success", "Categoria criada com sucesso!");
         }
 
+        
         function remove ($params) {
             $category = findBy("categories", $params["category"], "id");
 
             $remove = delete("categories", "id", $category->id);
+            $remove = delete("products", "category_id", $category->id);
 
             $products = findAllBy("products", $category->id, "category_id");
 

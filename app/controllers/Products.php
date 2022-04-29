@@ -19,8 +19,8 @@
 
 
             return [
-                "body" => TEMPLATE_PATH . "/products/index.php",
                 "categories" => $categories,
+                "removeMain" => "container",
             ];
         }
 
@@ -28,6 +28,18 @@
         /**
          * PAGES
          */
+
+        function pagamento(){
+            return [
+                "view" => "pagamento.php",
+                "data" => [
+                    "removeBody" => True,
+                    "removeHeader" => True,
+                    "title" => "Novo produto | {}"
+                    
+                ]
+            ];
+        }
 
         function novo ($params) {
 

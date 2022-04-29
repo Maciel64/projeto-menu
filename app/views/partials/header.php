@@ -9,7 +9,7 @@
 
             <li class="mx-5 flex ml-10"><a class="text-white w-full" href="/">Página Inicial</a></li>
 
-            <?php if (isset($site)) : ?>
+            <?php if ($site) : ?>
                 <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
             <?php endif; ?>
 

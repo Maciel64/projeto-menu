@@ -11,6 +11,8 @@
                 <th>Descrição</th>
                 <th>Slug</th>
                 <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +21,8 @@
                 <td class="m-1 border-2 border-sky-600"><?= $site->description; ?></td>
                 <td class="m-1 border-2 border-sky-600"><?= $site->slug; ?></td>
                 <td class="m-1 border-2 border-sky-600 bg-sky-600 text-white hover:bg-sky-700 hover:drop-shadow-lg"><a class="block w-full h-full" href="<?= "site/" . $site->slug; ?>">Visitar</a></td>
+                <td class="m-1 border-2 border-green-600 bg-green-600 text-white hover:bg-green-700 hover:drop-shadow-lg"><a class="block w-full h-full" href="<?= "site/" . $site->slug; ?>/editar">Editar</a></td>
+                <td class="m-1 border-2 border-red-600 bg-red-600 text-white hover:bg-red-700 hover:drop-shadow-lg"><a class="block w-full h-full" href="<?= "site/" . $site->slug; ?>/remover">Remover</a></td>
             </tr>
         </tbody>
     </table>
