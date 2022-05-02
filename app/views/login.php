@@ -1,6 +1,10 @@
 <div class="flex w-full h-full">
-    <section class="h-full w-1/2 bg-white flex justify-center  items-center">
+    <section class=" flex justify-center items-center lg:h-full lg:w-1/2 lg:bg-white lg:flex lg:justify-center  lg:items-center">
         <img src="" alt="">
+<<<<<<< HEAD
+=======
+        <form action="/login" method="POST" class="flex flex-col ">
+>>>>>>> responsividade
 
         
         <form action="/login" method="POST" class="flex flex-col items-center">
@@ -27,8 +31,9 @@
             </div>
 
 
-            <div class="p-4">
-                <a href="#">Esqueci minha senha</a>
+            <div class=" p-4">
+                <a href="#" class="block">Esqueci minha senha</a>
+                <a class="lg:hidden" href="/cadastrar">Cadastrar-se</a>
             </div>
 
             <div class="mx-auto">
@@ -38,7 +43,7 @@
 
     </section>
 
-    <section class="flex flex-col justify-center bg-green-800 w-1/2 align-items items-center">
+    <section class="hidden lg:flex  lg:flex-col lg:justify-center lg:bg-green-800 lg:w-1/2 lg:align-items lg:items-center">
 
         <h1 class=" justify-center text-white text-5xl ">Bem vindo!</h1>
 
