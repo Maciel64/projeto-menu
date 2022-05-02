@@ -1,7 +1,7 @@
 <div class="flex w-full h-full">
-    <section class="h-full w-1/2 bg-white flex justify-center  items-center">
+    <section class=" flex justify-center items-center lg:h-full lg:w-1/2 lg:bg-white lg:flex lg:justify-center  lg:items-center">
         <img src="" alt="">
-        <form action="/login" method="POST" class="flex flex-col">
+        <form action="/login" method="POST" class="flex flex-col ">
 
             <div class="p-4 m-1 ml-0 ">
                 <span class="material-icons">
@@ -23,8 +23,9 @@
             </div>
 
 
-            <div class="p-4">
-                <a href="#">Esqueci minha senha</a>
+            <div class=" p-4">
+                <a href="#" class="block">Esqueci minha senha</a>
+                <a class="lg:hidden" href="/cadastrar">Cadastrar-se</a>
             </div>
 
             <div class="mx-auto">
@@ -34,13 +35,13 @@
 
     </section>
 
-    <section class="flex flex-col justify-center bg-green-800 w-1/2 align-items items-center">
+    <section class="hidden lg:flex  lg:flex-col lg:justify-center lg:bg-green-800 lg:w-1/2 lg:align-items lg:items-center">
 
         <h1 class=" justify-center text-white text-5xl ">Bem vindo!</h1>
 
         <p class=" justify-center p-6  w-82 text-white ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium maxime consequuntur atque aliquam officia fuga inventore, quae quos velit saepe expedita consequatur tempora laudantium rerum? Quae voluptates repellat exercitationem officiis.</p>
 
-        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl " href="#">Cadastrar-se</a>
+        <a class="py-3 px-6 w-fit h-fit cadastrar justify-center text-white border-solid border-2 rounded-3xl " href="/cadastrar">Cadastrar-se</a>
 
     </section>
 </div>
