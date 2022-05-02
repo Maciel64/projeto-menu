@@ -21,13 +21,13 @@
      * DATABASE SETTINGS
      */
 
-    // define("DB_SERVER_URL", "db4free.net");
-    // define("DB_USER_NAME", "estruturatestes");
-    // define("DB_PASSWD", "estruturavip7!");
+    define("DB_SERVER_URL", "db4free.net");
+    define("DB_USER_NAME", "estruturatestes");
+    define("DB_PASSWD", "estruturavip7!");
 
-    define("DB_SERVER_URL", "localhost");
-    define("DB_USER_NAME", "root");
-    define("DB_PASSWD", "");
+    // define("DB_SERVER_URL", "localhost");
+    // define("DB_USER_NAME", "root");
+    // define("DB_PASSWD", "");
     
     define("DB_NAME", "projetomenu");
 

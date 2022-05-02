@@ -1,12 +1,6 @@
 <div class="flex w-full h-full">
     <section class=" flex justify-center items-center lg:h-full lg:w-1/2 lg:bg-white lg:flex lg:justify-center  lg:items-center">
-        <img src="" alt="">
-<<<<<<< HEAD
-=======
-        <form action="/login" method="POST" class="flex flex-col ">
->>>>>>> responsividade
-
-        
+        <img src="" alt="">       
         <form action="/login" method="POST" class="flex flex-col items-center">
             
             <?= getFlash("error"); ?>
