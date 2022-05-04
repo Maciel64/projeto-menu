@@ -1,6 +1,6 @@
 <header class="flex items-center justify-end bg-sky-600 text-white h-16 w-full p-5">
 
-    <div class="flex bg-white mr-auto rounded-full w-14 h-12">
+    <div class="flex bg-white mr-auto rounded-full w-10 h-8">
 
     </div>
 

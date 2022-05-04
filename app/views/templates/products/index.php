@@ -40,7 +40,7 @@
                         <?php if (admin($site)) : ?>
                             <a href="/site/<?= $site->slug ?>/cart/add/product/<?= $product->id; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">+ Carrinho</a>
                             <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/editar" class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit">Editar</a>
-                            <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/remover" class="bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit">Apagar</a>
+                            <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/remover" class="bg-red-600 text-white p-2 mt-1 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit">Apagar</a>
                         <?php endif ?>
                     </div>
 
@@ -63,9 +63,9 @@
         </section>
         <?php if (admin($site)) : ?>
             <div class="mt-10">
-                <a class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/produto/novo">+ Cadastrar novo produto</a>
-                <a class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/editar">Editar Categoria</a>
-                <a class="bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/remover">Apagar Categoria</a>
+                <a class=" bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/produto/novo">+ Cadastrar novo produto</a>
+                <a class="mt-1 bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/editar">Editar Categoria</a>
+                <a class="mt-1 bg-red-600 text-white p-2 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit" href="./<?= $site->slug ?>/categoria/<?= $category->id; ?>/remover">Apagar Categoria</a>
             </div>
         <?php endif; ?>
     </section>

@@ -24,6 +24,12 @@
 
             <div class="p-4 m-1 ml-0 ">
 
+                <label for="nome"></label>
+                <input class="rounded-lg w-80 h-10 py-2 px-2 border-2 border-black" placeholder="CPF" id="nome" type="text" name="nome">
+            </div>
+
+            <div class="p-4 m-1 ml-0 ">
+
                 <label for="telefone"></label>
                 <input class="rounded-lg w-80 h-10 py-2 px-2 border-2 border-black" placeholder="Telefone" id="telefone" type="number" name="telefone">
             </div>
@@ -47,9 +53,11 @@
             </div>
 
             <div>
-                <input class=" w-36 h-10 bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded-3xl border-black border-solid" type="submit" value="Cadastrar-se">
+                <input class="block mr-auto ml-auto w-36 h-10 bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded-3xl border-black border-solid" type="submit" value="Cadastrar-se">
             </div>
         </form>
     </section>
+    <script>
 
+    </script>
 </div>
