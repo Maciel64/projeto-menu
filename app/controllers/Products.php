@@ -44,7 +44,19 @@
         function novo ($params) {
 
             $site = findBy("sites", $params["site"], "slug");
+
+            
+            if ($site->template !== "products") {
+                redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); 
+            }
+
+            
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
+            }
+            
             $category = findBy("categories", $params["categoria"], "id");
+
 
 
             if (!$category || $category->site_id !== $site->id) {
@@ -66,6 +78,17 @@
 
             $site = findBy("sites", $params["site"], "slug");
             $product = findBy("products", $params["produto"], "id");
+
+
+            if ($site->template !== "products") {
+                redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); 
+            }
+
+
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
+            }
+
 
             return [
                 "view" => "templates/products/edit.php",

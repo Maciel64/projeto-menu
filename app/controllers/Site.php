@@ -13,7 +13,13 @@
 
         function novo () {
 
+            if (!user()) {
+                return redirectWithMessage("/", "error", "Conecte-se para criar um site");
+            }
+
+
             $site = findBy("sites", user()->id, "user_id");
+
 
             if ($site) {
                 return redirectWithMessage("/dashboard", "error", "Só é possível cadastrar um site");
@@ -69,6 +75,10 @@
 
             $site = findBy("sites", $params["site"], "slug");
 
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não tem permissão para acessar essa página"); 
+            }
+
             if (!$site) {
                 return redirectWithMessage("/", "error", "O site informado não existe");
             }
@@ -87,15 +97,36 @@
 
             $site = findBy("sites", $params["site"], "slug");
 
+
             if (!$site) {
                 return redirectWithMessage("/", "error", "O site informado não existe");
             }
+
+
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não tem permissão para acessar essa página");
+            }
+
 
             return [
                 "view" => "site/remove.php",
                 "data" => [
                     "title" => "Remover | {$site->name}",
                     "site" => $site,
+                ]
+            ];
+        }
+
+
+        function dashboard ($params) {
+
+            $site = findBy("sites", $params["site"], "slug");
+
+            return [
+                "view" => "site/dashboard.php",
+                "data" => [
+                    "title" => "Remover | {$site->name}",
+                    "site" => $site
                 ]
             ];
         }
@@ -181,5 +212,53 @@
             }
 
             return redirectWithMessage("/dashboard", "success", "O site {$site->name} foi apagado com sucesso");
+        }
+
+
+        function editDashboard($params) {
+
+            $validate = validate([
+                "profilePhoto" => "upload",
+                "bannerPhoto" => "upload"
+            ], true);
+
+            $site = findBy("sites", $params["site"], "slug");
+
+            foreach ($validate as $index => $value) {
+                if (!$value && $site->index !== NULL) {
+                    $validate[$index] = $site->$index;
+                }
+            }
+
+
+            $profilePhotoUploadWorked = move_uploaded_file($validate["profilePhoto"]["tmp"], UPLOAD_PATH . $validate["profilePhoto"]["newName"]);
+            $bannerPhotoUploadWorked = move_uploaded_file($validate["bannerPhoto"]["tmp"], UPLOAD_PATH . $validate["bannerPhoto"]["newName"]);
+
+            if (!($profilePhotoUploadWorked && $bannerPhotoUploadWorked)) {
+                return redirectWithMessage("/site/{$params["site"]}/dashboard", "error", "Não foi possível fazer upload das fotos");
+            }
+
+            $validate["profilePhoto"] = $validate["profilePhoto"]["newName"];
+            $validate["bannerPhoto"] = $validate["bannerPhoto"]["newName"];
+
+
+            if ($site->profilePhoto) {
+                unlink(UPLOAD_PATH . $site->profilePhoto);
+            }
+
+            if ($site->bannerPhoto) {
+                unlink(UPLOAD_PATH . $site->bannerPhoto);
+            }
+
+
+            $update = update("sites", $params["site"], "slug", array_keys($validate), array_values($validate));
+
+
+            if (!$update) {
+                return redirectWithMessage("/site/{$params["site"]}/dashboard", "error", "Não foi possível atualizar as fotos");
+            }
+            
+
+            return redirectWithMessage("/site/{$params["site"]}", "success", "Fotos atualizadas com sucesso!");  
         }
     }

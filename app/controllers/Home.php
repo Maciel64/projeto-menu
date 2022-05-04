@@ -51,7 +51,12 @@
 
         function dashboard () {
 
-            $site = findBy("sites", $_SESSION[LOGGED]->id, "user_id");
+            $site = findBy("sites", user()->id, "user_id");
+
+            
+            if (!logged()) {
+                return redirectWithMessage("/entrar", "error", "Faça login para conectar-se a sua dashboard"); 
+            }
 
 
             return [

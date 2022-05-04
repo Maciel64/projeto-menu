@@ -1,4 +1,4 @@
-<div class='flex m-5 w-8/12 rounded drop-shadow-md h-fit p-6 text-<?= $color; ?>-600 border-2 bg-<?= $color; ?>-200 border-<?= $color; ?>-600'>
+<div class='flash flex m-5 w-8/12 rounded drop-shadow-md h-fit p-6 text-<?= $color; ?>-600 border-2 bg-<?= $color; ?>-200 border-<?= $color; ?>-600'>
     <span class='flex material-icons mr-3 text-<?= $color; ?>-600'><?= $icon; ?></span>
     <span class='flex font-bold'><?= $flash; ?></span>
 </div>

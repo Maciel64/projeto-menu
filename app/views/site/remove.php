@@ -1,7 +1,4 @@
-<?php if (!admin($site)) { return redirectWithMessage("/site/{$site->slug}", "error", "Você não tem permissão para acessar essa página"); } ?>
-
 <h1>Você tem certeza que quer remover o site <?= $site->name; ?>?</h1>
-<?= getFlash("error"); ?>
 
 <form action="/site/<?= $site->slug; ?>/remove" method="POST">
     <div>

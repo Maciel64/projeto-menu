@@ -42,7 +42,7 @@
         
         
     <?php endif; ?>
-
+    <script src="/static/js/flash.js"></script>
 </body>
 
 </html>

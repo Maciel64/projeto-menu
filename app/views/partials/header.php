@@ -1,16 +1,15 @@
 <header class="flex items-center justify-end bg-sky-600 text-white h-16 p-5">
 
-    <div class="flex bg-white mr-auto rounded-full w-14 h-12">
-
-    </div>
+    <a href="/" class="flex bg-white mr-auto rounded-full w-14 h-12"></a>
 
     <nav class="flex">
         <ul class="flex w-full justify-between">
 
             <li class="mx-5 flex ml-10"><a class="text-white w-full" href="/">Página Inicial</a></li>
 
-            <?php if ($site) : ?>
+            <?php if (isset($site) && $site) : ?>
                 <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
+                <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/dashboard">Dashboard</a></li>
             <?php endif; ?>
 
             <?php if (logged()) : ?>

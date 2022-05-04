@@ -1,5 +1,3 @@
-<?php if (!user()) { return redirectWithMessage("/", "error", "Conecte-se para criar um site"); } ?>
-
 <h1>Crie um novo site para você!</h1>
 <?= getFlash("error"); ?>
 

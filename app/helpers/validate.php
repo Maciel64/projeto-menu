@@ -146,10 +146,4 @@
 
         return ["tmp" => $tmp, "newName" => $newName];
     }
-
-
-    function edit ($field, $param) {
-        
-    }
-
 ?>

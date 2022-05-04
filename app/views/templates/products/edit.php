@@ -1,5 +1,3 @@
-<?php if ($site->template !== "products") { redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); } ?>
-<?php if (!admin($site)) { redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página"); } ?>
 
 
 <form action="/site/<?= $site->slug; ?>/product/<?= $product->id; ?>/edit" method="POST" enctype="multipart/form-data">

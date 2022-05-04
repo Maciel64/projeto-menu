@@ -1,5 +1,3 @@
-<?php if (!admin($site)) { return redirectWithMessage("/site/{$site->slug}", "error", "Você não tem permissão para acessar essa página"); } ?>
-
 <h1>Editando o site <?= $site->name; ?></h1>
 <?= getFlash("error"); ?>
 

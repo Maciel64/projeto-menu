@@ -12,6 +12,16 @@
 
             $site = findBy("sites", $params["site"], "slug");
 
+            if ($site->template !== "products") {
+                return redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); 
+            }
+
+
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
+            }
+
+
             return [
                 "view" => "templates/products/categories/new.php",
                 "data" => [
@@ -25,6 +35,18 @@
         function editar ($params) {
 
             $site = findBy("sites", $params["site"], "slug");
+
+
+            if ($site->template !== "products") {
+                return redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); 
+            }
+            
+            
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
+            }
+
+
             $category = findBy("categories", $params["categoria"], "id");
 
             return [
@@ -43,6 +65,15 @@
             $site = findBy("sites", $params["site"], "slug");
             $category = findBy("categories", $params["categoria"], "id");
             $products = findAllBy("products", $category->id, "category_id");
+
+            if ($site->template !== "products") {
+                return redirectWithMessage("/", "error", "O site {$site->name} não possui o template de produtos"); 
+            }
+            
+
+            if (!admin($site)) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Você não possui permissão para acessar essa página");
+            }
 
             return [
                 "view" => "templates/products/categories/remove.php",
