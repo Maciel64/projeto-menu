@@ -4,7 +4,7 @@
         try {
             $connection = connect();
 
-            $sql = "DELETE FROM $table WHERE $fieldToBeCompare = $valueToCompare;";
+            $sql = "DELETE FROM $table WHERE $fieldToBeCompare = '$valueToCompare';";
 
             $prepare = $connection->prepare($sql);
             
