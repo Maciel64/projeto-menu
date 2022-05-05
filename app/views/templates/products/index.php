@@ -2,6 +2,7 @@
     <div class='flex z-0 m-5 rounded drop-shadow-md w-8/12 h-fit p-6 text-sky-600 border-2 bg-sky-200 border-sky-600'>
         <span class='flex mr-3 my-auto material-icons text-sky-600'>check_circle_outline</span>
         <span class='flex font-bold my-auto'>Você é o administrador desse site</span>
+        
     </div>
 <?php endif ?>
 
@@ -21,7 +22,7 @@
 
         <h2><?= $category->name; ?></h2>
 
-        <section class="grid justify-center items-center flex-col lg:grid-cols-3 gap-4 mb-6 h-max">
+        <section class="grid justify-center flex-col lg:grid-cols-3 gap-4 mb-6 h-max">
 
             <?php if ($category->products) : ?>
                 <?php foreach ($category->products as $product) : ?>

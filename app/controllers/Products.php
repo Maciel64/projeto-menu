@@ -33,7 +33,7 @@
             return [
                 "view" => "pagamento.php",
                 "data" => [
-                    "removeBody" => True,
+                    "removeMain" => True,
                     "removeHeader" => True,
                     "title" => "Novo produto | {}"
                     
