@@ -6,10 +6,10 @@
         <ul class="flex w-full justify-between">
 
             <?php if (isset($site) && $site) : ?>
-                <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
+                <li class="hidden lg:block mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
 
                 <?php if (admin($site)) : ?>
-                    <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/dashboard">Dashboard do meu site</a></li>
+                    <li class="hidden lg:block mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/dashboard">Dashboard do meu site</a></li>
                 <?php endif; ?>
             <?php endif; ?>
 
@@ -17,7 +17,8 @@
                 <li class="mx-5"><a class="w-96" href="/dashboard">Bem-Vindo <?= user()->name; ?></a></li>
 
             <?php else : ?>
-                <li><a class="text-white" href="/entrar">Faça login</a></li>
+                <li class="mr-2"><a class="text-white" href="/entrar">Faça login</a></li>
+                
                 <li><a class="text-white" href="/cadastrar">Cadastre-se</a></li>
             <?php endif; ?>
 
@@ -29,10 +30,12 @@
 
             </div>
             <aside class="flex top-16 z-10">
-                <a href="" class="sair">sair</a>
+                
                 <?php if ($site) : ?>
-                    <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
+                    <li class="mx-4"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
+                    <li class="mx-4"><a class="w-96 " href="/site/<?= $site->slug; ?>/dashboard">Dashboard</a></li>
                 <?php endif; ?>
+                <a class="ml-0 bg-white-600 text-white p-2 transition-all hover:bg-white-700 hover:drop-shadow-lg inline-block rounded" href="/sair">Sair da sessão</a>
             </aside>
 
         </ul>

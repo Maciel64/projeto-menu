@@ -51,7 +51,7 @@
             return [
                 "view" => "pagamento.php",
                 "data" => [
-                    "removeBody" => True,
+                    "removeMain" => True,
                     "removeHeader" => True,
                     "title" => "Pagamento | {$site->name}",
                     "products" => $products
