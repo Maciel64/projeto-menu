@@ -125,7 +125,7 @@
             return [
                 "view" => "site/dashboard.php",
                 "data" => [
-                    "title" => "Remover | {$site->name}",
+                    "title" => "Dashboard do meu site | {$site->name}",
                     "site" => $site
                 ]
             ];
@@ -219,7 +219,9 @@
 
             $validate = validate([
                 "profilePhoto" => "upload",
-                "bannerPhoto" => "upload"
+                "bannerPhoto" => "upload",
+                "thirdyPartyDelivery" => "required|maxlen:1",
+                "cep" => "minlen:8|maxlen:9"
             ], true);
 
             $site = findBy("sites", $params["site"], "slug");
@@ -234,20 +236,18 @@
             $profilePhotoUploadWorked = move_uploaded_file($validate["profilePhoto"]["tmp"], UPLOAD_PATH . $validate["profilePhoto"]["newName"]);
             $bannerPhotoUploadWorked = move_uploaded_file($validate["bannerPhoto"]["tmp"], UPLOAD_PATH . $validate["bannerPhoto"]["newName"]);
 
-            if (!($profilePhotoUploadWorked && $bannerPhotoUploadWorked)) {
-                return redirectWithMessage("/site/{$params["site"]}/dashboard", "error", "Não foi possível fazer upload das fotos");
-            }
-
-            $validate["profilePhoto"] = $validate["profilePhoto"]["newName"];
-            $validate["bannerPhoto"] = $validate["bannerPhoto"]["newName"];
-
-
-            if ($site->profilePhoto) {
-                unlink(UPLOAD_PATH . $site->profilePhoto);
-            }
-
-            if ($site->bannerPhoto) {
-                unlink(UPLOAD_PATH . $site->bannerPhoto);
+            if (($profilePhotoUploadWorked && $bannerPhotoUploadWorked)) {
+                $validate["profilePhoto"] = $validate["profilePhoto"]["newName"];
+                $validate["bannerPhoto"] = $validate["bannerPhoto"]["newName"];
+    
+    
+                if ($site->profilePhoto) {
+                    unlink(UPLOAD_PATH . $site->profilePhoto);
+                }
+    
+                if ($site->bannerPhoto) {
+                    unlink(UPLOAD_PATH . $site->bannerPhoto);
+                }
             }
 
 
@@ -255,10 +255,10 @@
 
 
             if (!$update) {
-                return redirectWithMessage("/site/{$params["site"]}/dashboard", "error", "Não foi possível atualizar as fotos");
+                return redirectWithMessage("/site/{$params["site"]}/dashboard", "error", "Não foi possível atualizar os dados");
             }
             
 
-            return redirectWithMessage("/site/{$params["site"]}", "success", "Fotos atualizadas com sucesso!");  
+            return redirectWithMessage("/site/{$params["site"]}", "success", "Dados atualizados com sucesso!");  
         }
     }

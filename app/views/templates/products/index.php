@@ -21,7 +21,7 @@
 
         <h2><?= $category->name; ?></h2>
 
-        <section class="grid justify-center items-center flex-col lg:grid-cols-3 gap-4 mb-6 h-max">
+        <section class="grid justify-center flex-col lg:grid-cols-3 gap-4 mb-6 h-max">
 
             <?php if ($category->products) : ?>
                 <?php foreach ($category->products as $product) : ?>
@@ -35,8 +35,7 @@
                             <h2 class="text-cyan-600"><?= $product->name; ?></h2>
                         </p>
                         <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
-                        <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span>
-                    </p>
+                        <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span></p>
                         
                         <?php if (admin($site)) : ?>
                             <a href="/site/<?= $site->slug ?>/cart/add/product/<?= $product->id; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">+ Carrinho</a>

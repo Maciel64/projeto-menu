@@ -45,11 +45,9 @@ namespace app\controllers;
             }
 
             if (!isset($_SESSION["userCart"][$site->slug][$product->id])) {
-                var_dump("Entrou");
                 $product->quantity = 1;
                 $_SESSION["userCart"][$site->slug][$product->id] = $product;
             } else {
-                var_dump("Não entrou");
                 $_SESSION["userCart"][$site->slug][$product->id]->quantity += 1;
             }
 

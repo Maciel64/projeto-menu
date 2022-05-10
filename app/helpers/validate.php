@@ -48,11 +48,10 @@
     
     function required ($field) {
         if (empty($_POST[$field])) {
-            setFlash($field, "Não deixe campos vazios");
             return false;
         }
 
-        return filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        return filter_input(INPUT_POST, $field, FILTER_DEFAULT);
     }
 
 
@@ -60,20 +59,18 @@
         $isEmailValid = filter_input(INPUT_POST, $field, FILTER_VALIDATE_EMAIL);
 
         if (!$isEmailValid) {
-            setFlash($field, "O campo precisa ser um email válido");
             return false;
         }
 
-        return filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        return filter_input(INPUT_POST, $field, FILTER_DEFAULT);
     }
 
 
     function unique ($field, $param) {
-        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
         $user = findBy($param, $data, $field);
 
         if ($user) {
-            setFlash($field, "O valor desse campo já está cadastrado");
             return false;
         }
 
@@ -82,10 +79,20 @@
 
 
     function maxlen ($field, $param) {
-        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
 
         if (strlen($data) > $param) {
-            setFlash($field, "O tamanho do campo não pode ser maior que $param");
+            return false;
+        }
+
+        return $data;
+    }
+
+
+    function minlen ($field, $param) {
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
+
+        if (strlen($data) < $param) {
             return false;
         }
 
@@ -94,11 +101,10 @@
 
 
     function equals ($field, $param) {
-        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
-        $compare = filter_input(INPUT_POST, $param, FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
+        $compare = filter_input(INPUT_POST, $param, FILTER_DEFAULT);
 
         if ($data !== $compare) {
-            setFlash($field, "Os campos não batem");
             return false;
         }
 
@@ -107,11 +113,10 @@
 
 
     function exists ($field, $param) {
-        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
         $exists = findBy($param, $data, "email");
 
         if(!$exists) {
-            setFlash($field, "O valor passado não está cadastrado");
             return false;
         }
 
@@ -120,12 +125,11 @@
 
 
     function notExists ($field, $param) {
-        $data = filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST, $field, FILTER_DEFAULT);
         $exists = findBy($param, $data, "email");
 
 
         if($exists) {
-            setFlash($field, "O valor passado já está cadastrado");
             return false;
         }
 
@@ -137,7 +141,6 @@
         $extension = pathinfo($_FILES[$field]["name"], PATHINFO_EXTENSION);
 
         if (!in_array($extension, array("png", "jpg", "jpeg"))) {
-            setFlash($field, "Extensão do aruivo inválida");
             return false;
         }
 

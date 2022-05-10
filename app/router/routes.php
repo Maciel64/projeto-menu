@@ -26,13 +26,12 @@
             
             "/site/[a-z]{1,30}/produto/[0-9]+/editar" => "Products@editar",
             "/site/[a-z]{1,30}/produto/[0-9]+/remover" => "Products@remover",
-
+            
             /**
              * LINK AUTHS
              */
 
-            "/site/[a-z]{1,30}/carrinho/adicionar/produto/[0-9]+" => "Cart@add",
-            "/pagamento" => "Products@pagamento",
+            "/site/[a-z]{1,30}/cart/add/product/[0-9]+" => "Cart@add",
             
         ],
         
@@ -53,7 +52,14 @@
 
             "/site/[a-z]{1,30}/product/[0-9]+/edit" => "Products@edit",
             "/site/[a-z]{1,30}/product/[0-9]+/remove" => "Products@remove",
+
+            "/site/[a-z]{1,30}/payment" => "Products@payment",
+
+            /**
+             * AUTHS to PAGES
+             */
+
+            "/site/[a-z]{1,30}/pagamento" => "Products@pagamento",
         ]
     ];
-
 ?>

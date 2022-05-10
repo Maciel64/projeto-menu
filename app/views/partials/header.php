@@ -7,13 +7,14 @@
 
             <?php if (isset($site) && $site) : ?>
                 <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/carrinho">Meu carrinho</a></li>
-                <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/dashboard">Dashboard</a></li>
+
+                <?php if (admin($site)) : ?>
+                    <li class="mx-5"><a class="w-96" href="/site/<?= $site->slug; ?>/dashboard">Dashboard do meu site</a></li>
+                <?php endif; ?>
             <?php endif; ?>
 
             <?php if (logged()) : ?>
                 <li class="mx-5"><a class="w-96" href="/dashboard">Bem-Vindo <?= user()->name; ?></a></li>
-
-
 
             <?php else : ?>
                 <li><a class="text-white" href="/entrar">Faça login</a></li>

@@ -29,17 +29,36 @@
          * PAGES
          */
 
-        function pagamento(){
+
+        function pagamento($params){
+            
+            $site = findBy("sites", $params["site"], "slug");
+            $products = $_SESSION["userCart"][$site->slug];
+
+            if (!$products) {
+                return redirectWithMessage("/site/{$params["site"]}", "error", "Não funcionou");
+            }
+
+
+            foreach ($products as $index => $value) {
+                $products[$index]->quantity = filter_input(INPUT_POST, "product-" . $index, FILTER_SANITIZE_NUMBER_INT);
+                if ($products[$index]->quantity === "0") {
+                    return redirectWithMessage("/site/{$params["site"]}/carrinho", "error", "Todos os produtos precisam ter uma quantidade");
+                }
+            }
+
+
             return [
                 "view" => "pagamento.php",
                 "data" => [
                     "removeBody" => True,
                     "removeHeader" => True,
-                    "title" => "Novo produto | {}"
-                    
+                    "title" => "Pagamento | {$site->name}",
+                    "products" => $products
                 ]
             ];
         }
+
 
         function novo ($params) {
 
