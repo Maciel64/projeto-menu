@@ -11,7 +11,28 @@
 
         function index ($site) {
 
-            $categories = findAllBy("categories", $site->id, "site_id");
+            $page = !isset($_GET["page"]) || $_GET["page"] <= 0 ? 1 : $_GET["page"];
+            $categoriesCount = count(findAllBy("categories", $site->id, "site_id"));
+
+            // var_dump($categoriesCount);
+            // die();
+
+
+            // 1 => 0 -> 2
+            // 2 => 3 -> 5
+            // 3 => 6 -> 8
+            // 4 => 9 -> 11
+            // 5 => 12 -> 14
+
+            $offSet = ($page - 1) * 3;
+
+
+            $categories = findAllByLimit("categories", $site->id, "site_id", $offSet, 3);
+            
+
+            if (!$categories) {
+                $categories = findAllByLimit("categories", $site->id, "site_id", 0, 3);
+            }
 
             foreach ($categories as $index => $category) {
                 $categories[$index]->products = findAllby("products", $category->id, "category_id");
@@ -21,6 +42,7 @@
             return [
                 "categories" => $categories,
                 "removeMain" => "container",
+                "pages" => ceil($categoriesCount / 3)
             ];
         }
 
@@ -63,6 +85,13 @@
         function novo ($params) {
 
             $site = findBy("sites", $params["site"], "slug");
+            $category = findBy("categories", $params["categoria"], "id");
+            $products = findAllBy("products", $category->id, "category_id");
+
+
+            if (sizeof($products) === 16 ) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "Cada categoria não pode ter mais que 16 produtos. Crie categorias mais específicas para cadastrar mais produtos");
+            }
 
             
             if ($site->template !== "products") {

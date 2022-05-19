@@ -1,4 +1,4 @@
- <?php if (admin($site)) : ?>
+<?php if (admin($site)) : ?>
     <div class='flex z-0 m-5 rounded drop-shadow-md w-8/12 h-fit p-6 text-sky-600 border-2 bg-sky-200 border-sky-600'>
         <span class='flex mr-3 my-auto material-icons text-sky-600'>check_circle_outline</span>
         <span class='flex font-bold my-auto'>Você é o administrador desse site</span>
@@ -37,8 +37,8 @@
                         <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
                         <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span></p>
                         
+                        <a href="/site/<?= $site->slug ?>/cart/add/product/<?= $product->id; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">+ Carrinho</a>
                         <?php if (admin($site)) : ?>
-                            <a href="/site/<?= $site->slug ?>/cart/add/product/<?= $product->id; ?>" class="bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">+ Carrinho</a>
                             <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/editar" class="bg-green-600 text-white p-2 transition-all hover:bg-green-700 hover:drop-shadow-lg rounded inline-block w-fit">Editar</a>
                             <a href="/site/<?= $site->slug ?>/produto/<?= $product->id; ?>/remover" class="bg-red-600 text-white p-2 mt-1 transition-all hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit">Apagar</a>
                         <?php endif ?>
@@ -54,7 +54,7 @@
 
                     <?php else : ?>
 
-                        <p>Esse site ainda não tem produtos cadastrados</p>
+                        <p>Essa categoria ainda não tem produtos cadastrados</p>
                     <?php endif; ?>
 
                 </div>
@@ -71,6 +71,14 @@
     </section>
 
 <?php endforeach; ?>
+
+<div class="flex">
+    <?php for ($index = 1; $index <= $pages; $index ++) : ?>
+        <div class="p-1">
+            <a href="?page=<?= $index; ?>"><?= $index ?></a>
+        </div>
+    <?php endfor; ?>
+</div>
 
 <?php if (admin($site)) : ?>
     <section class="my-5 rounded drop-shadow-md w-8/12 h-fit bg-slate-50 p-6">

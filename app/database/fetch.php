@@ -32,3 +32,15 @@
 
         return $prepare->fetchAll();
     }
+
+
+    function findAllByLimit ($table, $value, $field, $offSet, $limit, $fields = "*") {
+        $connection = connect();
+
+        $prepare = $connection->prepare("SELECT $fields FROM $table WHERE $field = :$field LIMIT $offSet, $limit");
+        $prepare->execute([
+            $field => $value
+        ]);
+
+        return $prepare->fetchAll();
+    }
