@@ -11,10 +11,18 @@ namespace app\controllers;
         function index ($params) {
 
             $site = findBy("sites", $params["site"], "slug");
+
             $products = [];
 
             if(isset($_SESSION["userCart"][$site->slug])) {
                 foreach ($_SESSION["userCart"][$site->slug] as $index => $product) {
+                    $dbProduct = findBy("products", $index, "id");
+
+                    if (!$dbProduct) {
+                        unset($_SESSION["userCart"][$site->slug][$index]);
+                        continue;
+                    }
+                    
                     $products[] = $product;
                 }
             }
@@ -53,5 +61,20 @@ namespace app\controllers;
 
 
             return redirectWithMessage("/site/{$site->slug}", "success", "Produto adicionado ao carrinho");
+        }
+
+
+        function remove ($params) {
+            $site = findBy("sites", $params["site"], "slug");
+            $product = findBy("products", $params["product"], "id");
+            $category = findBy("categories", $product->category_id, "id");
+
+            if ($site->id !== $category-> site_id) {
+                return redirectWithMessage("/site/{$site->slug}", "error", "O produto especificado não existe nesse site");
+            }
+
+            unset($_SESSION["userCart"][$site->slug][$product->id]);
+
+            return redirectWithMessage("/site/{$site->slug}/carrinho", "success", "Produto removido do carrinho");
         }
     }

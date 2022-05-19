@@ -14,6 +14,7 @@
                 <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
                 <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span></p>
                 <input type="number" value="<?= $product->quantity; ?>" placeholder="Quantidade do produto" name="product-<?= $product->id; ?>">
+                <a href="/site/<?= $site->slug ?>/cart/remove/product/<?= $product->id; ?>">Remover</a>
             </div>
         <?php endforeach; ?>
 

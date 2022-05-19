@@ -32,7 +32,7 @@
              */
 
             "/site/[a-z]{1,30}/cart/add/product/[0-9]+" => "Cart@add",
-            
+            "/site/[a-z]{1,30}/cart/remove/product/[0-9]+" => "Cart@remove"
         ],
         
         "POST" => [
