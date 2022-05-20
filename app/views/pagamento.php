@@ -14,15 +14,30 @@
 
 <body class="text-lg bg-slate-100 w-full  ">
     <div class=" grid row-span-1 lg:flex overflow-x-hidden lg:justify-center ">
-        <section class="  lg:flex lg:justify-center lg:flex-col border-black p-20 mt-8 border-r-2">
-            <h2 class="flex justify-center">Revisar produtos</h2>
+        <section class=" lg:w-1/3 lg:flex lg:justify-center lg:flex-col border-black p-20 mt-8 border-r-2">
+            <h2 class="lg:mt-28 flex justify-center">Revisar produtos</h2>
+
+            <?php foreach ($products as $index => $product) : ?>
+            <div class="object-contain  my-5 lg:w-60 lg:block lg:itens-center  drop-shadow bg-white rounded p-2">
+                <img class="block" src="/upload/<?= $product->photo; ?>" alt="<?= $product->name; ?>">
+                <hr>
+
+                <p class="p-1 ">
+                <h2 class="text-cyan-600"><?= $product->name; ?></h2>
+                </p>
+                <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
+                
+                Quantidade <input class="w-16 rounded text-center border-2 border-black" type="number" value="<?= $product->quantity; ?>" name="product-<?= $product->id; ?>">
+            </div>
+
+        <?php endforeach; ?>
         </section>
 
         <!-- ==========================ENTREGA=====================================-->
 
         <!---->
-        <section class="border-black p-2 lg:p-2 border-r-2 mt-8 lg:flex lg:justify-center lg:flex-col">
-            <h2 class="flex justify-center">Frete e entrega</h2>
+        <section class="lg:w-1/3  border-black p-2 lg:p-2 border-r-2 mt-8 lg:flex lg:justify-center lg:flex-col">
+            <h2 class=" flex justify-center">Frete e entrega</h2>
             <p>
                 <label class="">
                     <input class="w-4 ml-1 h-4 retirarLocal mt-12 pb-10" name="entrega" type="radio" />
@@ -66,7 +81,7 @@
 
         <!-- ==========================pagamento====================================-->
 
-        <section class="p-16 border-r-2 mt-8 lg:flex lg:justify-center lg:flex-col">
+        <section class="lg:w-1/3 p-16 border-r-2 mt-8 lg:flex lg:justify-center lg:flex-col">
             <h2 class="flex justify-center">Pagamento</h2>
 
 

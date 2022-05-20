@@ -14,7 +14,9 @@
                 <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
                 
                 Quantidade <input class="w-16 rounded text-center border-2 border-black" type="number" value="<?= $product->quantity; ?>" name="product-<?= $product->id; ?>">
+                <a href="/site/<?= $site->slug ?>/cart/remove/product/<?= $product->id; ?>" class="bg-red-600 text-white p-2 transition-all cursor-pointer hover:bg-red-700 hover:drop-shadow-lg rounded inline-block w-fit">Remover</a>
             </div>
+
         <?php endforeach; ?>
 
         <input type="submit" value="Finalizar compra" class="bg-sky-600 text-white p-2 transition-all cursor-pointer hover:bg-sky-700 hover:drop-shadow-lg rounded inline-block w-fit">

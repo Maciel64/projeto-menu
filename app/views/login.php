@@ -27,11 +27,11 @@
 
             <div class=" p-4">
                 <a href="#" class="block">Esqueci minha senha</a>
-                <a class="lg:hidden" href="/cadastrar">Cadastrar-se</a>
+                <a class="cursor-pointer lg:hidden" href="/cadastrar">Cadastrar-se</a>
             </div>
 
             <div class="mx-auto">
-                <input class=" w-36 h-10 bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded-3xl border-black border-solid" type="submit" value="Logar-se">
+                <input class="cursor-pointer w-36 h-10 bg-sky-600 text-white p-2 transition-all hover:bg-sky-700 hover:drop-shadow-lg rounded-3xl border-black border-solid" type="submit" value="Logar-se">
             </div>
         </form>
 
