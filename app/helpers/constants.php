@@ -21,14 +21,29 @@
      * DATABASE SETTINGS
      */
 
-    // define("DB_SERVER_URL", "db4free.net");
-    // define("DB_USER_NAME", "estruturatestes");
-    // define("DB_PASSWD", "estruturavip7!");
 
-    define("DB_SERVER_URL", "localhost");
-    define("DB_USER_NAME", "root");
-    define("DB_PASSWD", "");
-    
-    define("DB_NAME", "projetomenu");
+    // define("DATABASE", [
+    //     "server_url" => "db4free.net",
+    //     "user" => "estruturatestes",
+    //     "passwd" => "estruturavip7!",
+    //     "db_name" => "projetomenu"
+    // ]);
 
+
+    define("DATABASE", [
+        "server_url" => "localhost",
+        "user" => "root",
+        "passwd" => "",
+        "db_name" => "projetomenu"
+    ]);
+
+
+    define("MAIL", [
+        "host" => "smtp.mailtrap.io",
+        "port" => "2525",
+        "user" => "0f177bc6a33c60",
+        "passwd" => "5f7b2d22cbbae5",
+        "from_name" => "Maciel",
+        "from_mail" => "macielsuassuna14@gmail.com"
+    ]);
 ?>

@@ -17,6 +17,19 @@
         class="w-10/12  lg:flex lg:justify-center lg:flex-col border-black p-20 mt-8 border-r-2"
         >
         <h2 class="flex justify-center">Revisar produtos</h2>
+        <?php foreach ($products as $index => $product) : ?>
+            <div class="w-11/12 my-5 lg:w-full drop-shadow bg-white rounded p-2">
+                <img class="block" src="/upload/<?= $product->photo; ?>" alt="<?= $product->name; ?>">
+                <hr>
+
+                <p class="p-1 ">
+                <h2 class="text-cyan-600"><?= $product->name; ?></h2>
+                </p>
+                <p class="p-1 "><span class="text-sm">R$<?= $product->price; ?> </span> </p>
+                <p class="p-1 text-sm text-slate-600"><span class="text-sm "><?= $product->description; ?> </span></p>
+                <input type="number" value="<?= $product->quantity; ?>" placeholder="Quantidade do produto" name="product-<?= $product->id; ?>">
+            </div>
+        <?php endforeach; ?>
         </section>
 
         <!-- ==========================ENTREGA=====================================-->
@@ -106,6 +119,7 @@
         
 
         <!-- ==========================pagamento====================================-->
+
 
         <section class="p-16 border-r-2 mt-8 lg:flex lg:justify-center lg:flex-col">
         <h2 class="flex justify-center">Pagamento</h2>

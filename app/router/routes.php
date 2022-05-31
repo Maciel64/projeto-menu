@@ -8,6 +8,8 @@
             "/dashboard" => "Home@dashboard",
             "/entrar" => "Home@entrar",
             "/sair" => "Home@sair",
+            "/recuperar" => "Home@recuperar",
+            "/mudar/forget/[a-z0-9]+" => "Home@mudar",
 
             "/site/novo" => "Site@novo",
             "/site/[a-z]{1,30}" => "Site@inicio",
@@ -38,6 +40,8 @@
         "POST" => [
             "/login" => "Home@login",
             "/register" => "Home@register",
+            "/recovery" => "Home@recovery",
+            "/change" => "Home@change",
 
             "/site/create" => "Site@create",
             "/site/[a-z]{1,30}/edit" => "Site@edit",

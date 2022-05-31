@@ -12,6 +12,7 @@
             "app/database/delete.php",
             "app/database/fetch.php",
             "app/database/update.php",
+            "app/helpers/mail.php",
             "app/helpers/constants.php",
             "app/helpers/flash.php",
             "app/helpers/redirect.php",
@@ -24,7 +25,13 @@
         {
             "name": "Maciel Suassuna",
             "email": "macielsuassuna14@gmail.com"
+        },
+        {
+            "name": "Lucas Sá",
+            "email": "lucas1324@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
 }

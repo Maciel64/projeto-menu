@@ -69,6 +69,38 @@
         }
 
 
+        function recuperar () {
+            return [
+                "view" => "recovery.php",
+                "data" => [
+                    "title" => "Recupere sua senha",
+                    "removeHeader" => True,
+                    "removeMain" => True
+                ]
+            ];
+        }
+
+
+        function mudar ($params) {
+
+            $user = findBy("users", $params["forget"], "forget");
+
+
+            if (!$user || !$_SESSION["forget"]) {
+                return redirectWithMessage("/", "error", "Você precisa requisitar a troca de senha antes de acessar essa página");
+            }
+
+            return [
+                "view" => "change.php",
+                "data" => [
+                    "title" => "Recupere sua senha",
+                    "removeHeader" => True,
+                    "removeMain" => True
+                ]
+            ];
+        }
+
+
         /**
          * AUTH
          */
@@ -119,5 +151,58 @@
             }
 
             return redirectWithMessage("/entrar", "success", "Cadastrado com sucesso! Agora realize o login");
+        }
+
+
+        function recovery () {
+            $validate = validate(["email" => "required|email"]);
+            
+            if (!$validate) {
+                return redirectWithMessage("/recuperar", "error", "Email inválido");
+            }
+
+            $user = findBy("users", $validate["email"], "email");
+
+            if (!$user) {
+                return redirectWithMessage("/recuperar", "error", "Email não cadastrado no sistema");
+            }
+
+            $forget = md5(uniqid(rand(), true));
+            $update = update("users", $user->id, "id", ["forget"], [$forget]);
+
+            if (!$update) {
+                return redirectWithMessage("/recuperar", "error", "Não foi possível fazer a troca de emails");
+            }
+
+
+            $template = file_get_contents(VIEWS_PATH . "email/recoveryMail.php");
+            $template = str_replace(['{name}', '{forget}'], [$user->name, $forget], $template);
+
+            sendMail("Email de recuperação", $template, $user->name, $user->email);
+
+            $_SESSION["forget"] = $forget;
+        
+            return redirectWithMessage("/", "success", "Verifique sua caixa de mensagens.");
+        }
+
+
+        function change () {
+            $validate = validate([
+                "passwd" => "required"
+            ]);
+
+            if (!$validate) {
+                return redirectWithMessage("/mudar/forget/{$_SESSION["forget"]}", "error", "A senha informada é inválida");
+            }
+
+            $validate["passwd"] = password_hash($validate["passwd"], PASSWORD_DEFAULT);
+
+            $update = update("users", $_SESSION["forget"], "forget", array_keys($validate), array_values($validate));
+
+            if (!$update) {
+                return redirectWithMessage("/mudar/forget/{$_SESSION["forget"]}", "error", "Não foi possível atualizar o banco.");
+            }
+
+            return redirectWithMessage("/entrar", "success", "Senha atualizada com sucesso!");
         }
     }
