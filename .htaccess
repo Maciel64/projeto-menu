@@ -13,4 +13,4 @@ Options All -Indexes
 # ROUTER URL Rewrite
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.*)$  /public/index.php
+RewriteRule ^(.*)$  public/index.php
