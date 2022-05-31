@@ -22,20 +22,20 @@
      */
 
 
-    // define("DATABASE", [
-    //     "server_url" => "db4free.net",
-    //     "user" => "estruturatestes",
-    //     "passwd" => "estruturavip7!",
-    //     "db_name" => "projetomenu"
-    // ]);
-
-
     define("DATABASE", [
-        "server_url" => "localhost",
-        "user" => "root",
-        "passwd" => "",
+        "server_url" => "db4free.net",
+        "user" => "estruturatestes",
+        "passwd" => "estruturavip7!",
         "db_name" => "projetomenu"
     ]);
+
+
+    // define("DATABASE", [
+    //     "server_url" => "localhost",
+    //     "user" => "root",
+    //     "passwd" => "",
+    //     "db_name" => "projetomenu"
+    // ]);
 
 
     define("MAIL", [
